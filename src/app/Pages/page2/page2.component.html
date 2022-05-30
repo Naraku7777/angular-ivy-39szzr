@@ -1,0 +1,20 @@
+
+<mat-toolbar class="toolbar-color py-5 mb-4">
+<span class="center">Ingresar nuevos empleos</span>
+</mat-toolbar>
+<div class="container">
+
+    <br><br>
+    <input type="text" placeholder="Nombre de empleo" [(ngModel)]= "page2.nombreEmpleo" >
+    <br><br>
+
+    <input type="text" placeholder="Nombre del usuario" [(ngModel)]= "page2.nombreUsuario">
+    <br><br>
+
+    <input type="text" placeholder="Email" [(ngModel)]= "page2.email">
+    
+    <br><br>
+    <input type="text" placeholder="Descripcion" [(ngModel)]= "page2.descripcion">
+    <br><br>
+    <button type="submit" (click) = 'save'>Ingresar</button>
+</div>
