@@ -9,23 +9,19 @@ import { BasedatosService } from '../../services/basedatos.service';
   styleUrls: ['./page2.component.css']
 })
 
-export class Page2Component implements OnInit {
+export class Page2Component{
   
-  page2: N_empleo = {
+  N_empleo = {
     nombreEmpleo: '',
     nombreUsuario: '',
     email: '',
     descripcion: ''
   };
 
-  constructor(public database: BasedatosService) { }
-
-  ngOnInit() {
-  }
+  public database: BasedatosService
 
   save() {
-
-    const data = this.page2;
+    const data = this.N_empleo;
     const enlace = 'NuevoEmpleo';
     this.database.createDocument<N_empleo>(data, enlace)
   }

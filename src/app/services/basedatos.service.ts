@@ -7,11 +7,8 @@ import {AngularFirestore, AngularFirestoreCollection
 })
 
 export class BasedatosService {
-  constructor ( public Firestore: AngularFirestore) {} 
+  public Firestore: AngularFirestore
 
-  ngOnInit(){
-
-  }
   createDocument <tipo>(data: tipo, enlace: string ){
     const empleoCollection: AngularFirestoreCollection<tipo> =
                           this.Firestore.collection<tipo>(enlace);
