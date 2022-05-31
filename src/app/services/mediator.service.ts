@@ -8,7 +8,6 @@ import {AngularFirestore, AngularFirestoreCollection
 
 export class MediatorService {
   private Firestore: AngularFirestore
- 
   public async createDocument (data, enlace){
       this.Firestore.collection(enlace).add(data);
   }
