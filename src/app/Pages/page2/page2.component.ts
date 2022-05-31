@@ -11,17 +11,17 @@ import { BasedatosService } from '../../services/basedatos.service';
 
 export class Page2Component{
   
-  N_empleo = {
+  page2: N_empleo = {
     nombreEmpleo: '',
     nombreUsuario: '',
     email: '',
     descripcion: ''
   };
 
-  public database: BasedatosService
+  constructor (public database: BasedatosService){}
 
   save() {
-    const data = this.N_empleo;
+    const data = this.page2;
     const enlace = 'NuevoEmpleo';
     this.database.createDocument<N_empleo>(data, enlace)
   }
