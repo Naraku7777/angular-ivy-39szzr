@@ -16,9 +16,21 @@ export class Page2Component{
   constructor(private authService: MediatorService){}
   
   Ingresar(){
-    console.log(this.usuario);
     const{email, password} = this.usuario;
     this.authService.registrar(email, password).then(res => {
+      console.log("se registro: ", res);
+    })
+  }
+
+  login(){
+    const{email, password} = this.usuario;
+    this.authService.login(email, password).then(res => {
+      console.log("se registro: ", res);
+    })
+  }
+
+  IngresarGoogle(){
+    this.authService.loginwithGoogle().then(res => {
       console.log("se registro: ", res);
     })
   }
