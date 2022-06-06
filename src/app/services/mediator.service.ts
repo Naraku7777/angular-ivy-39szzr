@@ -8,7 +8,7 @@ import firebase from 'firebase/compat/app';
 export class MediatorService {
   constructor(private fire: AngularFireAuth){ }
 
-  async loginwithGoogle(){
+  async loginwithGoogle(email: string, password: string){
     try{
       return await this.fire.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     } catch(err){
