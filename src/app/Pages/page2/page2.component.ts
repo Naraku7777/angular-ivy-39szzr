@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-
-interface Item {
-  nombreEmpleo: string
-};
+import { MediatorService } from '../../services/mediator.service';
 
 @Component({
   selector: 'app-page2',
@@ -13,13 +8,18 @@ interface Item {
 })
 
 export class Page2Component{
-  public itemsCollection: AngularFirestoreCollection<Item>;
-  items: Observable<Item[]>;
-  constructor(private afs: AngularFirestore){
-      this.itemsCollection = afs.collection<Item>('items');
-      this.items = this.itemsCollection.valueChanges();
+  usuario = {
+    email: "",
+    password: ""
   }
-  save(item: Item) {
-      this.itemsCollection.add(item);
+  
+  constructor(private authService: MediatorService){}
+  
+  Ingresar(){
+    console.log(this.usuario);
+    const{email, password} = this.usuario;
+    this.authService.registrar(email, password).then(res => {
+      console.log("se registro: ", res);
+    })
   }
 }
