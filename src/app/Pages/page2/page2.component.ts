@@ -30,7 +30,8 @@ export class Page2Component{
   }
 
   IngresarGoogle(){
-    this.authService.loginwithGoogle().then(res => {
+    const{email, password} = this.usuario;
+    this.authService.loginwithGoogle(email, password).then(res => {
       console.log("se registro: ", res);
     })
   }
