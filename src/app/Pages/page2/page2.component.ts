@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { N_empleo } from '../../models/interfaces';
-import { BasedatosService } from '../../services/basedatos.service';
-import { MediatorService } from '../../services/mediator.service';
+import { Component } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
+interface Item {
+  nombreEmpleo: string
+};
 
 @Component({
   selector: 'app-page2',
@@ -11,19 +13,13 @@ import { MediatorService } from '../../services/mediator.service';
 })
 
 export class Page2Component{
-  
-  page2: N_empleo = {
-    nombreEmpleo: '',
-    nombreUsuario: '',
-    email: '',
-    descripcion: ''
-  };
-
-  constructor (private database: MediatorService){}
-
-  save() {
-    const data = this.page2;
-    const enlace = 'NuevoEmpleo';
-    this.database.createDocument(data, enlace)
+  public itemsCollection: AngularFirestoreCollection<Item>;
+  items: Observable<Item[]>;
+  constructor(private afs: AngularFirestore){
+      this.itemsCollection = afs.collection<Item>('items');
+      this.items = this.itemsCollection.valueChanges();
+  }
+  save(item: Item) {
+      this.itemsCollection.add(item);
   }
 }
