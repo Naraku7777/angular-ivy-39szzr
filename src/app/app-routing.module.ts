@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'Login', component: LoginComponent},
 
   { path: 'page1', component: Page1Component, ...canActivate(() => redirectUnauthorizedTo(['/Login'])) },
-  { path: 'page2', component: Page2Component }
+  { path: 'page2', component: Page2Component, ...canActivate(() => redirectUnauthorizedTo(['/Login']))}
 
 ];
 

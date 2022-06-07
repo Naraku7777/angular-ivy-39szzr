@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MediatorService } from '../../services/mediator.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class LoginComponent{
     password: ""
   }
   
-  constructor(private authService: MediatorService){}
+  constructor(
+    private authService: MediatorService,
+    private router: Router
+    ){}
   
   Ingresar(){
     const{email, password} = this.usuario;
@@ -23,15 +27,15 @@ export class LoginComponent{
 
   login(){
     const{email, password} = this.usuario;
-    this.authService.login(email, password).then(res => {
-      console.log("se registro: ", res);
+    this.authService.login(email, password).then(() => {
+      this.router.navigate(['/page1']);
     })
   }
 
   IngresarGoogle(){
     const{email, password} = this.usuario;
-    this.authService.loginwithGoogle(email, password).then(res => {
-      console.log("se registro: ", res);
+    this.authService.loginwithGoogle(email, password).then(() => {
+      this.router.navigate(['/page1']);
     })
   }
 }
