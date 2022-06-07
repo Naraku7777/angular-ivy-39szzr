@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import firebase from 'firebase/compat/app';
 @Injectable({
@@ -33,5 +34,8 @@ export class MediatorService {
       console.log("error en login", err);
       return null;
     }
+  }
+  async logout(){
+    return this.fire.signOut();
   }
 }
