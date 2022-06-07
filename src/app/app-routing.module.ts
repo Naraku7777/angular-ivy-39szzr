@@ -9,7 +9,8 @@ import { Page2Component } from './Pages/page2/page2.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/Login', pathMatch: 'full' },
+  { path: '', redirectTo: '/page1', pathMatch: 'full'},
+  
   {path: 'Login', component: LoginComponent},
 
   { path: 'page1', component: Page1Component, ...canActivate(() => redirectUnauthorizedTo(['/Login'])) },
