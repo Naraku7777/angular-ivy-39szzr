@@ -17,4 +17,7 @@ export class Page2Component{
     Perfil: "",
     Descripcion: ""
   }
+  save(){
+    
+  }
 }
