@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class Page2Component{
-
+  trabajo = {
+    email: "",
+    Nombre_Trabajo: "",
+    Empresa_Solicita: "",
+    Fecha: "",
+    Periodo: "",
+    Perfil: "",
+    Descripcion: ""
+  }
 }

@@ -2,8 +2,27 @@
 <span class="center">Ingresar nuevos empleos</span>
 </mat-toolbar>
 <div class="container">
-  <label style="float: left;">email</label>
-  <input class="form-control m-2" type="email" placeholder="Ingrese su email">
-  <label style="float: left;">Password</label>
-  <input class="form-control m-2" type="password" placeholder="Ingrese su Password">
+  <label style="float: left;">E-mail publicador</label>
+  <input class="form-control m-2" type="email" placeholder="Ingrese su email" [(ngModel)] = "trabajo.email">
+  
+  <label style="float: left;">Nombre del Trabajo</label>
+  <input class="form-control m-2" type="string" placeholder="Ingrese el nombre del trabajo" [(ngModel)] = "trabajo.Nombre_Trabajo">
+  
+  <label style="float: left;">Empresa que solicita</label>
+  <input class="form-control m-2" type="string" placeholder="Ingrese el nombre de la Empresa" [(ngModel)] = "trabajo.Empresa_Solicita">
+  
+  <label style="float: left;">Fecha de la solicitud</label>
+  <input class="form-control m-2" type="string" placeholder="Ingrese la fecha dd/mm/aaaa" [(ngModel)] = "trabajo.Fecha">
+  
+  <label style="float: left;">Periodo</label>
+  <input class="form-control m-2" type="string" placeholder="Ingrese el periodo (Indefinido/ Temporal/ Fijo)" [(ngModel)] = "trabajo.Periodo">
+  
+  <label style="float: left;">Perfil buscado</label>
+  <input class="form-control m-2" type="string" placeholder="Ingrese el perfil que busca en el trabajor" [(ngModel)] = "trabajo.Perfil">
+  
+  <label style="float: left;">Descripcion del trabajo</label>
+  <input class="form-control m-2" type="string" placeholder="Ingrese una descripcion brebe" [(ngModel)] = "trabajo.Descripcion">
+
+  <button class="btn btn-primary btn-block m-2" (click)="save()">Ingresar trabajo</button>
+
 </div>
